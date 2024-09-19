@@ -1,0 +1,64 @@
+
+
+.react-calendar__tile.highlight {
+  background-color: lightblue;
+  border-radius: 50%;
+  color: white;
+}
+
+
+.task-card {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.task-time {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-info .username {
+  font-weight: bold;
+}
+
+.profile-info .department {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.task-details {
+  margin-top: 10px;
+}
+
+.task-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.task-status.completed {
+  color: green;
+}
+
+.task-status.new-task {
+  color: red;
+}

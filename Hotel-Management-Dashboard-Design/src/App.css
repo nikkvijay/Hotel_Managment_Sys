@@ -1,0 +1,33 @@
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .calendar-task-container {
+    width: 300px;
+    padding: 1rem;
+  }
+  
+  .task-creation {
+    flex: 1;
+    margin-left: 20px;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .calendar-task-container,
+    .task-creation {
+      width: 100%;
+    }
+  }
+  

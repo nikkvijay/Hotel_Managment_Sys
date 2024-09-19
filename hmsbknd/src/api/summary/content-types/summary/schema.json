@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "summaries",
+  "info": {
+    "singularName": "summary",
+    "pluralName": "summaries",
+    "displayName": "summary",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "totalArrived": {
+      "type": "biginteger"
+    },
+    "totalBooked": {
+      "type": "biginteger"
+    },
+    "totalCheckIn": {
+      "type": "biginteger"
+    }
+  }
+}

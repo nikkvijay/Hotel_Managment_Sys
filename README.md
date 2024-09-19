@@ -1,4 +1,4 @@
-Hotel Management System
+#Hotel Management System
 Overview
 The Hotel Management System is a React-based application designed for managing hotel operations. It features user authentication, task scheduling, and summary insights. The backend is powered by Strapi, providing a flexible and customizable content management system.
 

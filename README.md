@@ -11,6 +11,15 @@ The Hotel Management System is a React-based application designed for managing h
 - Booking Management: View and manage hotel bookings.
 
 
+
+## Tech Stack
+
+- React.js: A JavaScript library for building user interfaces.
+- Vite: A modern frontend build tool that significantly improves the development experience.
+- Tailwind CSS: A utility-first CSS framework for rapid UI development.
+- Auth0: A platform for authentication and authorization.
+- Strapi: Flexible and customizable backend for managing content.
+
 ## Installation
 
 1. Frontend

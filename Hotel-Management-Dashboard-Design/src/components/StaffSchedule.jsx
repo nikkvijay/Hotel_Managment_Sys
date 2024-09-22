@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './StaffScheduler.css'; 
-let imgUrl
+import './StaffScheduler.css';
 
+let imgUrl;
 const StaffScheduler = () => {
   const [tasks, setTasks] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -16,8 +16,7 @@ const StaffScheduler = () => {
       try {
         const response = await axios.get('http://localhost:1337/api/tasks?populate=*');
         setTasks(response.data.data); // Strapi stores task data inside response.data.data
-      
-        imgUrl = response.data.data[0].attributes.eimage.data.attributes.url
+        imgUrl = response.data.data[0].attributes.eimage.data.attributes.url;
         console.log('resImg',imgUrl
         )
       } catch (error) {
@@ -28,7 +27,7 @@ const StaffScheduler = () => {
     fetchTasks();
   }, []);
 
-  
+  // Filter tasks based on the selected date
   useEffect(() => {
     const filtered = tasks.filter(
       (task) =>
@@ -37,27 +36,26 @@ const StaffScheduler = () => {
     setFilteredTasks(filtered);
   }, [selectedDate, tasks]);
 
-  
+  // Handle date change
   const onDateChange = (date) => {
     setSelectedDate(date);
   };
 
- 
+  // Highlight dates with tasks in the calendar
   const tileClassName = ({ date }) => {
     const hasTask = tasks.some(
       (task) => new Date(task.attributes.date).toDateString() === date.toDateString()
     );
-    return hasTask ? 'highlight' : ''; 
+    return hasTask ? 'highlight' : '';
   };
 
   return (
     <div className="scheduler-container">
-      
-      <div className="calendar-container ">
+      <div className="calendar-container">
         <Calendar
           onChange={onDateChange}
           value={selectedDate}
-          tileClassName={tileClassName} 
+          tileClassName={tileClassName}
         />
       </div>
 
@@ -74,16 +72,16 @@ const StaffScheduler = () => {
               </div>
               <div className="task-content">
                 <div className="profile-section">
-                  
                   <img
-                    src={task.attributes.eimage 
-                      ? `http://localhost:1337${imgUrl}` 
-                      : 'https://via.placeholder.com/40'}
+                    src={
+                      `${task?.attributes?.eimage?.data?.attributes?.url}`
+                    }
                     alt="Profile"
                     className="profile-img w-12 h-12"
                   />
                   <div className="profile-info">
                     <p className="username">
+                      {task.attributes.assignedTo || 'No Assignee'}
                     </p>
                     <p className="department">
                       {task.attributes.department || 'No Department'}
@@ -91,9 +89,7 @@ const StaffScheduler = () => {
                   </div>
                 </div>
                 <div className="task-details">
-                  <p className="task-title">
-                    {task.attributes.title} 
-                  </p>
+                  <p className="task-title">{task.attributes.title || 'No Title'}</p>
                   <p
                     className={`task-status ${
                       task.attributes.status === 'completed'
@@ -101,7 +97,7 @@ const StaffScheduler = () => {
                         : 'new-task'
                     }`}
                   >
-                    {task.attributes.status}
+                    {task.attributes.status || 'No Status'}
                   </p>
                 </div>
               </div>

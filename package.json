@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@swc/core": "^1.7.26",
+    "@swc/core-win32-x64-msvc": "^1.7.27-nightly-20240911.1"
+  }
+}

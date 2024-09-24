@@ -4,7 +4,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './StaffScheduler.css';
 
-let imgUrl;
+
 const StaffScheduler = () => {
   const [tasks, setTasks] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -17,8 +17,7 @@ const StaffScheduler = () => {
         const response = await axios.get('http://localhost:1337/api/tasks?populate=*');
         setTasks(response.data.data); // Strapi stores task data inside response.data.data
         imgUrl = response.data.data[0].attributes.eimage.data.attributes.url;
-        console.log('resImg',imgUrl
-        )
+        
       } catch (error) {
         console.error('Error fetching tasks:', error);
       }
@@ -73,9 +72,9 @@ const StaffScheduler = () => {
               <div className="task-content">
                 <div className="profile-section">
                   <img
-                    src={
-                      `${task?.attributes?.eimage?.data?.attributes?.url}`
-                    }
+                    src={task.attributes.eimage 
+                      ? `http://localhost:1337${task?.attributes?.eimage?.data?.attributes?.url}`
+                      : 'https://via.placeholder.com/40'}
                     alt="Profile"
                     className="profile-img w-12 h-12"
                   />
